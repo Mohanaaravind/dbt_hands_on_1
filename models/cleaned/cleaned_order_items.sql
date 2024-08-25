@@ -3,7 +3,7 @@ select
     order_id,
     user_id,
     product_id,
-    s.Target_Status,
+    status,
     created_at,
     shipped_at,
     delivered_at,
@@ -19,6 +19,5 @@ from
         {{ ref('stg_order_items') }}
     ) a
 
-left join {{ ref('source_mapping') }} s
-on a.status = s.Source_Status
+
 where r=1

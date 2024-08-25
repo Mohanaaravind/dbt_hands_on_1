@@ -1,0 +1,6 @@
+Source_Status, Target_Status
+Returned, Cancelled
+Cancelled, Cancelled
+Processing, Processing
+Shipped, Processing
+Complete, Success

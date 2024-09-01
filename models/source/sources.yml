@@ -2,6 +2,8 @@ version: 2
 
 sources:
   - name: raw
+    database: elook_commerce
+    schema: raw
     tables:
       - name: order_items
       - name: orders

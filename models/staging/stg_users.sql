@@ -1,17 +1,17 @@
 select 
-    ID,
-    FIRST_NAME,
-    LAST_NAME,
-    EMAIL,
-    AGE,
-    GENDER,
-    STREET_ADDRESS,
-    POSTAL_CODE,
-    CITY,
-    COUNTRY,
-    LATITUDE,
-    LONGITUDE,
-    TRAFFIC_SOURCE,
-    replace(lower(created_at),'utc','') as created_at
+    id,
+    first_name,
+    last_name,
+    email,
+    age,
+    gender,
+    street_address,
+    postal_code,
+    city,
+    country,
+    latitude,
+    longitude,
+    traffic_source,
+    to_timestamp(replace(lower(created_at),'utc','')) as created_at
 
 from {{ source('raw', 'users') }}

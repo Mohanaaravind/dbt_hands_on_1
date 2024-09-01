@@ -4,7 +4,7 @@ select
     category,
     name,
     brand,
-    retail_price,
+    round(retail_price,2) as retail_price,
     department,
     sku,
     distribution_center_id

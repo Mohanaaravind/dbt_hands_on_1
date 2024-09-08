@@ -15,7 +15,7 @@ users as (
         id,
         first_name,
         last_name
-    from {{ ref('stg_users') }}
+    from {{ ref('int_users') }}
 ),
 
 final as (

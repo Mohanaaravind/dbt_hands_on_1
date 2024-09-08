@@ -2,7 +2,7 @@ with products as (
     select
         id,
         category
-    from {{ ref('stg_products') }}
+    from {{ ref('int_products') }}
 ),
 
 product_id_price as (

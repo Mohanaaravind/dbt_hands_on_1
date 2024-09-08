@@ -16,7 +16,7 @@ from
             rank() 
                 over(partition by order_id,product_id order by created_at) as r 
         from
-        {{ ref('stg_order_items') }}
+        {{ ref('int_order_items') }}
     ) a
 
 

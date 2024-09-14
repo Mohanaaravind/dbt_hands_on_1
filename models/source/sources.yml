@@ -6,6 +6,32 @@ sources:
     schema: raw
     tables:
       - name: order_items
+        columns:
+          - name: product_id
+            data_tests:
+              - relationships:
+                  field: id
+                  to: source('raw', 'products')
       - name: orders
+        columns:
+          - name: order_id
+            data_tests:
+              - unique
+              - not_null
+          - name: user_id
+            data_tests:
+              - relationships:
+                  field: id
+                  to: source('raw', 'users')
       - name: users
+        columns:
+          - name: id
+            data_tests:
+              - unique
+              - not_null 
       - name: products
+        columns:
+          - name: id
+            data_tests:
+              - unique
+              - not_null

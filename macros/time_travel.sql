@@ -6,3 +6,9 @@ dateadd(
 )
     
 {%- endmacro %}
+
+{% macro seq_generator(r) %}
+
+    select {{ r }}
+    
+{%- endmacro -%}

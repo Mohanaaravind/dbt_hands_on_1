@@ -1,4 +1,4 @@
-{% set relations = dbt_utils.get_relations_by_prefix(schema='shared_data',prefix='',database='snowplow_digital_analytics') %}
+{#{% set relations = dbt_utils.get_relations_by_prefix(schema='shared_data',prefix='',database='snowplow_digital_analytics') %}
 {% for relation in relations %}
     select 
         '{{ relation.identifier }}' as table_name,
@@ -6,4 +6,12 @@
         {%- if not loop.last %}
         union all
         {% endif -%}
-{%- endfor %}
+{%- endfor %}#}
+
+{% set query %}
+    select max(order_id) + 1 from {{ ref('cleaned_orders') }}
+{% endset %}
+
+{% set start=run_query(query) %}
+
+select {{ start }}
